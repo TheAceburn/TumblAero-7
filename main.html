@@ -1,0 +1,218 @@
+<html>
+<link rel="stylesheet" href="https://unpkg.com/7.css">
+
+<head>
+    <title>{Name} 7</title>
+    
+    <meta name="color:Window Borders" content="{AccentColor}"/>
+    <meta name="image:Wallpaper" content="https://file.garden/ZU7bWmsEshkDZ3dd/Wn3Dygb-867379658.jpg"/>
+    <meta name="text:Startup" content="https://file.garden/ZU7bWmsEshkDZ3dd/Microsoft%20Windows%207%20Startup%20Sound.mp3"/>
+    
+    <style>
+  .accent::before,
+  .accent > .title-bar {
+    background-color: {color:Window Borders};
+  }
+body {
+    background: {BackgroundColor};
+    background-image: url('{image:Wallpaper}');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+ /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+} 
+
+.like_and_reblog_buttons {
+                border: 1px solid #e8e8e8;
+                border-radius: 3px;
+                list-style: none;
+            }
+
+            .like_and_reblog_buttons li {
+                float: left;
+                margin: 0;
+                padding: 7px 15px;
+                height: 20px;
+            }
+
+            .like_and_reblog_buttons li:first-child {
+                border-right: 1px solid #e8e8e8;
+            }
+            
+</style>
+
+<audio id="myAudio" src={text:Startup} preload="auto"></audio>
+
+  <script>
+    // Function to play the sound
+    function playSound() {
+      var audio = document.getElementById("myAudio");
+      audio.play();
+    }
+
+    // Call the playSound function when the page loads
+    window.onload = playSound;
+  </script>
+
+</head>
+
+
+<body>
+<p>TumblAero 7 beta 1.201 - the "wow im on a roll with these updates" update</p>
+<div class="window glass accent active" style="max-width: 500px; margin:auto">
+  <div class="title-bar">
+    <div class="title-bar-text"><a href="https://{Name}.tumblr.com" style="color: black">{Name} ({Title})</a></div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body has-space">
+    <p>
+    {Description}
+    </p>
+    <p>
+    {block:AskEnabled}
+        <a href="/ask"><button>{AskLabel}</button></a>
+    {/block:AskEnabled}
+    {block:SubmissionsEnabled}
+        <a href="/submit"><button>{SubmitLabel}</button></a>
+    {/block:SubmissionsEnabled}
+    <form class="searchbox" action="/search" method="get">
+    <input type="search" name="q" value="{SearchQuery}" placeholder="Search"/>
+    <button aria-label="search"></button>
+</form>
+    </p>
+  </div>
+</div>
+<div class="row">
+{block:Posts}
+<div class="column">
+{block:Odd}
+<p>‎</p>
+    <div class="window glass accent active" style="max-width: 500px">
+  <div class="title-bar">
+    <div class="title-bar-text">
+        <a href="{Permalink}" style="color: black">
+            {block:PinnedPostLabel} ({PinnedPostLabel}) {/block:PinnedPostLabel}
+            {block:NotReblog}{PostType} post by {Name}{/block:NotReblog}
+            {block:RebloggedFrom}reblog from {ReblogParentName}{/block:RebloggedFrom}
+        </a>
+    </div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+     <div class="window-body has-space">
+        <h3>{block:Title}{Title}{/block:Title}</h3>
+        <p>{Body}</p>
+        
+    </div>
+      <!-- hey remember to copy these into the other column too -->
+              <div class="status-bar">
+         {block:HasTags}
+          {block:Tags}
+                  <p class="status-bar-field"><a href="{TagURL}">#{Tag}</a></p>
+          {/block:Tags}
+          {/block:HasTags}
+          {block:Date}<p class="status-bar-field">{TimeAgo}</p>{/block:Date}
+          {block:NoteCount}<p class="status-bar-field">{NoteCountWithLabel}</p>{/block:NoteCount}
+          <ul class="status-bar-field like_and_reblog_buttons">
+              <li>{ReblogButton}</li>
+              <li>{LikeButton}</li>
+          </ul>
+      </div>
+      <!---->
+</div>
+{/block:Odd}
+</div>
+    
+<div class="column">
+{block:Even}
+<p>‎</p>
+    <div class="window glass accent active" style="max-width: 500px">
+  <div class="title-bar">
+    <div class="title-bar-text">
+        <a href="{Permalink}" style="color: black">
+            {block:PinnedPostLabel} ({PinnedPostLabel}) {/block:PinnedPostLabel}
+            {block:NotReblog}{PostType} post by {Name}{/block:NotReblog}
+            {block:RebloggedFrom}reblog from {ReblogParentName}{/block:RebloggedFrom}
+        </a>
+    </div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+     <div class="window-body has-space">
+        <p>
+        <h3>{block:Title}{Title}{/block:Title}</h3>
+        <p>{Body}</p>
+        <p>
+        </p>
+    </div>
+          <!-- hey remember to copy these into the other column too -->
+              <div class="status-bar">
+         {block:HasTags}
+          {block:Tags}
+                  <p class="status-bar-field"><a href="{TagURL}">#{Tag}</a></p>
+          {/block:Tags}
+          {/block:HasTags}
+          {block:Date}<p class="status-bar-field">{TimeAgo}</p>{/block:Date}
+          {block:NoteCount}<p class="status-bar-field">{NoteCountWithLabel}</p>{/block:NoteCount}
+          <ul class="status-bar-field like_and_reblog_buttons">
+              <li>{ReblogButton}</li>
+              <li>{LikeButton}</li>
+          </ul>
+      </div>
+      <!---->
+</div>
+{/block:Even}
+</div>
+
+{/block:Posts}
+</div>
+
+<!--temporary navigation thing until i figure shit out i literally just copied this from the custom html documentation lmao-->
+<html>
+    <body>
+        ...
+
+        {block:Pagination}{block:PreviousPage}
+                <a href="{PreviousPage}">Previous</a>
+            {/block:PreviousPage}{block:JumpPagination length="5"}{block:CurrentPage}
+                    <span class="current_page">{PageNumber}</span>
+                {/block:CurrentPage}{block:JumpPage}
+                    <a class="jump_page" href="{URL}">{PageNumber}</a>
+                {/block:JumpPage}{/block:JumpPagination}{block:NextPage}
+                <a href="{NextPage}">Next</a>
+            {/block:NextPage}{/block:Pagination}
+    </body>
+</html>
+
+<p>css used is <a href="https://github.com/khang-nd/7.css/">7.css</a></p>
+
+</body>
+
+</html>
