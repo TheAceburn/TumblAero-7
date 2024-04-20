@@ -4,7 +4,7 @@ i have to teach myself to code in html just for this
 
 how 2 use
 --------------------------------
--go to main.html
+-go to [main.html](https://github.com/TheAceburn/TumblAero-7/blob/c59848fb964e7d42490a32c319f797fc0cba1983/main.html)
 
 
 -copy raw code
